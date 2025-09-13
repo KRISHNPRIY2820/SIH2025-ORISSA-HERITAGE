@@ -6,13 +6,166 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
-    body { font-family: sans-serif; margin: 0; background: #fafafa; text-align: center; }
-    h2 { background: #ff9933; color: white; padding: 15px; margin: 0; }
-    h3 { margin-top: 30px; color: #333; }
-    model-viewer, iframe { width: 95%; height: 400px; margin: 10px auto; border: none; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-    button { padding: 8px 14px; margin: 5px; border: none; border-radius: 5px; background: #0078d7; color: #fff; cursor: pointer; }
-    button:hover { background: #005bb5; }
-  </style>
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@600;800&family=Nunito:wght@300;400;700&display=swap');
+
+:root{
+  --accent:#ff9933;   /* saffron */
+  --accent-dark:#d87a12;
+  --indigo:#1f2b6f;
+  --muted:#f4efe6;
+  --card-bg: rgba(255,255,255,0.95);
+  --glass: rgba(255,255,255,0.6);
+}
+
+/* Page base */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: 'Nunito', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #fffaf5 0%, #f9f7f2 60%), url('assets/pattern.png');
+  background-repeat: repeat;
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Header / Hero */
+header.site-hero{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:22px;
+  background-image: linear-gradient(120deg, rgba(31,43,111,0.95), rgba(255,153,51,0.92)), url('assets/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(15,20,40,0.18);
+}
+.site-hero .logo{
+  width:84px; height:84px; border-radius:12px;
+  background: rgba(255,255,255,0.12);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-family: 'Merriweather', serif;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.site-hero h1{ margin:0; font-family: 'Merriweather', serif; font-size:24px; line-height:1.05; }
+.site-hero p{ margin:4px 0 0; opacity:0.95; font-size:14px; }
+
+/* Layout container */
+.container{
+  width: min(1100px, 96%);
+  margin: 20px auto;
+  padding-bottom: 80px;
+}
+
+/* Card wrapper for each site (applies to your existing blocks) */
+.sketchfab-embed-wrapper,
+model-viewer {
+  display:block;
+  margin: 10px auto 0;
+  width: 100%;
+  max-width: 980px;
+  border-radius:14px;
+  overflow:hidden;
+  background: var(--card-bg);
+  border: 1px solid rgba(20,20,20,0.03);
+  box-shadow: 0 8px 30px rgba(20,25,40,0.06);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+/* Hover lift */
+.sketchfab-embed-wrapper:hover,
+model-viewer:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(20,25,40,0.12);
+}
+
+/* Make iframes responsive (within wrapper) */
+.sketchfab-embed-wrapper iframe{
+  width:100%;
+  height: 520px;
+  display:block;
+  border:0;
+  background:linear-gradient(180deg, #fff, #f6f5f2);
+}
+
+/* Headings */
+h2{
+  display:none; /* hide old title if using header */
+}
+h3{
+  font-family: 'Merriweather', serif;
+  font-size:20px;
+  color: var(--indigo);
+  margin: 22px auto 6px;
+  text-align:left;
+  width: min(980px, 96%);
+}
+
+/* Buttons: pill audio buttons and general action */
+button{
+  appearance:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  border: none;
+  color:#fff;
+  background: linear-gradient(180deg,var(--accent),var(--accent-dark));
+  font-weight:700;
+  box-shadow: 0 6px 18px rgba(217,135,40,0.18);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+  cursor:pointer;
+}
+button:hover{ transform: translateY(-3px); box-shadow: 0 18px 32px rgba(31,43,111,0.12); }
+button.small{ padding:8px 10px; font-weight:600; font-size:13px; background: var(--indigo); }
+
+/* Align control row */
+.control-row{
+  width: min(980px, 96%);
+  margin: 8px auto 20px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+/* info paragraph */
+p.footer{
+  text-align:center;
+  color:#555;
+  margin: 24px 0 48px;
+  font-size:14px;
+}
+
+/* small AR badge */
+.ar-badge{
+  display:inline-block;
+  background: linear-gradient(90deg,#21c6a9,#0fa3ff);
+  color:white;
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:13px;
+  margin-left: 12px;
+}
+
+/* Responsive */
+@media (max-width:780px){
+  .sketchfab-embed-wrapper iframe{ height: 380px; }
+  .site-hero{ padding:14px; gap:12px; }
+  .site-hero h1{ font-size:18px; }
+  h3{ font-size:18px; }
+  .container{ margin:12px auto; width:95%; }
+}
+
+/* subtle entry animation */
+@keyframes fadeInUp { from{ opacity:0; transform: translateY(8px); } to{ opacity:1; transform:none; } }
+.sketchfab-embed-wrapper, model-viewer { animation: fadeInUp .6s ease both; }
+</style>
+
 </head>
 <body>
   <h2>Odisha AR Heritage Demo</h2>
