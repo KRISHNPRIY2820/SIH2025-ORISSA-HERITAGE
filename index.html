@@ -164,6 +164,38 @@ p.footer{
 /* subtle entry animation */
 @keyframes fadeInUp { from{ opacity:0; transform: translateY(8px); } to{ opacity:1; transform:none; } }
 .sketchfab-embed-wrapper, model-viewer { animation: fadeInUp .6s ease both; }
+/* ===== Fix: make model-viewer same size as Sketchfab iframe ===== */
+model-viewer {
+  display: block;
+  width: 100%;
+  max-width: 980px;
+  height: 520px;           /* match iframe height */
+  min-height: 380px;
+  margin: 10px auto 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid rgba(20,20,20,0.03);
+  box-shadow: 0 8px 30px rgba(20,25,40,0.06);
+  transition: transform .28s ease, box-shadow .28s ease;
+  animation: fadeInUp .6s ease both;
+}
+
+/* ensure inner renderer fills the element (some browsers) */
+model-viewer::part(renderer) {
+  width: 100%;
+  height: 100%;
+}
+
+/* make audio/control rows align (optional) */
+.control-row { display:flex; gap:10px; align-items:center; margin:8px auto 20px; width: min(980px,96%); }
+
+/* Responsive adjustments (phones) */
+@media (max-width: 780px) {
+  model-viewer { height: 380px; }
+  .sketchfab-embed-wrapper iframe { height: 360px; }
+}
+
 </style>
 
 </head>
