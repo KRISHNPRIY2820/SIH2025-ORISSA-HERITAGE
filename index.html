@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Odisha AR Heritage App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body { font-family: sans-serif; margin: 0; background: #fafafa; text-align: center; }
+    h2 { background: #ff9933; color: white; padding: 15px; margin: 0; }
+    h3 { margin-top: 30px; color: #333; }
+    model-viewer, iframe { width: 95%; height: 400px; margin: 10px auto; border: none; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    button { padding: 8px 14px; margin: 5px; border: none; border-radius: 5px; background: #0078d7; color: #fff; cursor: pointer; }
+    button:hover { background: #005bb5; }
+  </style>
+</head>
+<body>
+  <h2>Odisha AR Heritage Demo</h2>
+
+  <!-- Jagannath Temple: Real AR -->
+  <h3>Jagannath Puri Temple (AR Enabled)</h3>
+  <model-viewer src="assets/jaga.glb" alt="Jagannath Temple"
+    ar ar-modes="webxr scene-viewer quick-look"
+    camera-controls auto-rotate>
+  </model-viewer>
+  <div>
+    <button onclick="document.getElementById('jaga').play()">▶ English</button>
+    <button onclick="document.getElementById('jag_od').play()">▶ Odia</button>
+  </div>
+  <audio id="jag_en" src="assets/jagannath_en.mp3"></audio>
+  <audio id="jag_od" src="assets/jagannath_od.mp3"></audio>
+
+  <!-- Konark -->
+  <h3>Konark Sun Temple (3D Preview)</h3>
+  <!-- <iframe src="https://sketchfab.com/models/f1a9046a0d6b463ab3f9a8141a005b1f/embed"></iframe>
+    -->
+  <div class="sketchfab-embed-wrapper">
+     <iframe title="SUN TEMPLE KONARK" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/6cc905be2ae34e8091eb1eaa84a17738/embed"> </iframe> 
+     <!-- <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/sun-temple-konark-6cc905be2ae34e8091eb1eaa84a17738?utm_medium=embed&utm_campaign=share-popup&utm_content=6cc905be2ae34e8091eb1eaa84a17738" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> SUN TEMPLE KONARK </a> by <a href="https://sketchfab.com/moniln9?utm_medium=embed&utm_campaign=share-popup&utm_content=6cc905be2ae34e8091eb1eaa84a17738" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> moniln </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=6cc905be2ae34e8091eb1eaa84a17738" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div> -->
+  <div>
+    <button onclick="document.getElementById('konark_en').play()">▶ English</button>
+    <button onclick="document.getElementById('konark_od').play()">▶ Odia</button>
+  </div>
+  <audio id="konark_en" src="assets/konark_en.mp3"></audio>
+  <audio id="konark_od" src="assets/konark_od.mp3"></audio>
+
+  <!-- Lingaraja -->
+  <h3>Lingaraja Temple (3D Preview)</h3>
+  <!-- <iframe src="https://sketchfab.com/models/193993e5875e49cbbe1a59e8a5b7f43d/embed"></iframe> -->
+   <div class="sketchfab-embed-wrapper"> 
+    <iframe title="Lingaraj Temple Complex" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/e7ec5b5dd06948fd941214a6ce39e04f/embed"> </iframe> 
+    <!-- <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/lingaraj-temple-complex-e7ec5b5dd06948fd941214a6ce39e04f?utm_medium=embed&utm_campaign=share-popup&utm_content=e7ec5b5dd06948fd941214a6ce39e04f" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Lingaraj Temple Complex </a> by <a href="https://sketchfab.com/Priyanshi_Agrawal?utm_medium=embed&utm_campaign=share-popup&utm_content=e7ec5b5dd06948fd941214a6ce39e04f" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Priyanshi_Agrawal </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=e7ec5b5dd06948fd941214a6ce39e04f" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div> -->
+  <div>
+    <button onclick="document.getElementById('ling_en').play()">▶ English</button>
+    <button onclick="document.getElementById('ling_od').play()">▶ Odia</button>
+  </div>
+  <audio id="ling_en" src="assets/lingaraj_en.mp3"></audio>
+  <audio id="ling_od" src="assets/lingaraj_od.mp3"></audio>
+
+  <!-- Dhauli -->
+  <h3>Dhauli Shanti Stupa (3D Preview)</h3>
+  <iframe src="https://sketchfab.com/models/7cfc6f6d6d3b499f8df346f6d228ec0b/embed"></iframe>
+  <div>
+    <button onclick="document.getElementById('dhauli_en').play()">▶ English</button>
+    <button onclick="document.getElementById('dhauli_od').play()">▶ Odia</button>
+  </div>
+  <audio id="dhauli_en" src="assets/dhauli_en.mp3"></audio>
+  <audio id="dhauli_od" src="assets/dhauli_od.mp3"></audio>
+
+  <!-- Udayagiri -->
+  <h3>Udayagiri Caves (3D Preview)</h3>
+  <iframe src="https://sketchfab.com/models/7a3e6d3c16c64f93b5c569d1880d8a58/embed"></iframe>
+  <div>
+    <button onclick="document.getElementById('uday_en').play()">▶ English</button>
+    <button onclick="document.getElementById('uday_od').play()">▶ Odia</button>
+  </div>
+  <audio id="uday_en" src="assets/udayagiri_en.mp3"></audio>
+  <audio id="uday_od" src="assets/udayagiri_od.mp3"></audio>
+
+  <p style="margin:20px; font-size:14px;">👉 Jagannath Temple supports AR placement. Other sites are shown as interactive 3D previews.</p>
+</body>
+</html>
