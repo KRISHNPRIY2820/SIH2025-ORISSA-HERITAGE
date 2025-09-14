@@ -195,6 +195,33 @@ model-viewer::part(renderer) {
   model-viewer { height: 380px; }
   .sketchfab-embed-wrapper iframe { height: 360px; }
 }
+.site-card {
+  max-width: 980px;
+  margin: 20px auto;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  background: #fff;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.site-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+}
+
+.site-card img.thumb {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #eee;
+}
+
+.site-card iframe,
+.site-card model-viewer {
+  width: 100%;
+  height: 520px;
+  display: block;
+  border: none;
+}
 
 </style>
 
@@ -211,13 +238,16 @@ model-viewer::part(renderer) {
   <h2>Odisha AR Heritage Demo</h2>
 
   <!-- Jagannath Temple: Real AR -->
+  
   <h3>Jagannath Puri Temple (AR Enabled)</h3>
+   <div class="site-card">
   <img src="assets/jagannath_thumb.jpg" alt="Jagannath Temple" style="max-width:980px;width:95%;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);margin:12px auto;display:block;">
 
   <model-viewer src="assets/model.glb" alt="Jagannath Temple"
     ar ar-modes="webxr scene-viewer quick-look"
     camera-controls auto-rotate>
   </model-viewer>
+  </div>
   <div>
     <button onclick="document.getElementById('jag_en').play()">▶ English</button>
     <button onclick="document.getElementById('jag_od').play()">▶ Odia</button>
@@ -226,7 +256,9 @@ model-viewer::part(renderer) {
   <audio id="jag_od" src="assets/jagannath_od.mp3"></audio>
 
   <!-- Konark -->
+   
   <h3>Konark Sun Temple (3D Preview)</h3>
+  <div class="site-card">
   <!-- <iframe src="https://sketchfab.com/models/f1a9046a0d6b463ab3f9a8141a005b1f/embed"></iframe>
     -->
   <img src="assets/konark_thumb.jpg" alt="Konark Sun Temple" style="max-width:980px;width:95%;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);margin:12px auto;display:block;">
@@ -236,6 +268,7 @@ model-viewer::part(renderer) {
      <iframe title="SUN TEMPLE KONARK" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/6cc905be2ae34e8091eb1eaa84a17738/embed"> </iframe> 
      <!-- <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/sun-temple-konark-6cc905be2ae34e8091eb1eaa84a17738?utm_medium=embed&utm_campaign=share-popup&utm_content=6cc905be2ae34e8091eb1eaa84a17738" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> SUN TEMPLE KONARK </a> by <a href="https://sketchfab.com/moniln9?utm_medium=embed&utm_campaign=share-popup&utm_content=6cc905be2ae34e8091eb1eaa84a17738" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> moniln </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=6cc905be2ae34e8091eb1eaa84a17738" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div> -->
   </div>
+  </div>
      <div>
     <button onclick="document.getElementById('konark_en').play()">▶ English</button>
     <button onclick="document.getElementById('konark_od').play()">▶ Odia</button>
@@ -244,11 +277,14 @@ model-viewer::part(renderer) {
   <audio id="konark_od" src="assets/konark_od.mp3"></audio>
 
   <!-- Lingaraja -->
+   
   <h3>Lingaraja Temple (3D Preview)</h3>
+   <div class="site-card">
   <!-- <iframe src="https://sketchfab.com/models/193993e5875e49cbbe1a59e8a5b7f43d/embed"></iframe> -->
    <div class="sketchfab-embed-wrapper"> 
     <iframe title="Lingaraj Temple Complex" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/e7ec5b5dd06948fd941214a6ce39e04f/embed"> </iframe> 
     <!-- <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/lingaraj-temple-complex-e7ec5b5dd06948fd941214a6ce39e04f?utm_medium=embed&utm_campaign=share-popup&utm_content=e7ec5b5dd06948fd941214a6ce39e04f" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Lingaraj Temple Complex </a> by <a href="https://sketchfab.com/Priyanshi_Agrawal?utm_medium=embed&utm_campaign=share-popup&utm_content=e7ec5b5dd06948fd941214a6ce39e04f" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Priyanshi_Agrawal </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=e7ec5b5dd06948fd941214a6ce39e04f" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p> -->
+  </div>
   </div>
     <div>
     <button onclick="document.getElementById('ling_en').play()">▶ English</button>
@@ -259,9 +295,11 @@ model-viewer::part(renderer) {
 
   <!-- Dhauli -->
   <h3>Dhauli Shanti Stupa (3D Preview)</h3>
+   <div class="site-card">
 <div class="sketchfab-embed-wrapper"> 
   <iframe title="Shanti Stupa lumbini" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/f65cb3c34adb4473b50b8d70ef9f534c/embed"> </iframe> 
   <!-- <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/shanti-stupa-lumbini-f65cb3c34adb4473b50b8d70ef9f534c?utm_medium=embed&utm_campaign=share-popup&utm_content=f65cb3c34adb4473b50b8d70ef9f534c" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Shanti Stupa lumbini </a> by <a href="https://sketchfab.com/Raj.Bikram.Maharjan?utm_medium=embed&utm_campaign=share-popup&utm_content=f65cb3c34adb4473b50b8d70ef9f534c" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Bhugol Tour </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=f65cb3c34adb4473b50b8d70ef9f534c" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p> -->
+</div>
 </div>
   <div>
     <button onclick="document.getElementById('dhauli_en').play()">▶ English</button>
@@ -272,9 +310,11 @@ model-viewer::part(renderer) {
 
   <!-- Udayagiri -->
   <h3>Rajarani Temple, Bhubneshwar Odisha (3D Preview)</h3>
+   <div class="site-card">
   <div class="sketchfab-embed-wrapper">
      <iframe title="Rajarani Temple, Bhubneshwar Odisha" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/ba3a034848f240be95983fc07ef5f072/embed"> </iframe> 
      <!-- <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/rajarani-temple-bhubneshwar-odisha-ba3a034848f240be95983fc07ef5f072?utm_medium=embed&utm_campaign=share-popup&utm_content=ba3a034848f240be95983fc07ef5f072" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Rajarani Temple, Bhubneshwar Odisha </a> by <a href="https://sketchfab.com/SCAN3DTECH?utm_medium=embed&utm_campaign=share-popup&utm_content=ba3a034848f240be95983fc07ef5f072" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> SCAN3DTECH </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=ba3a034848f240be95983fc07ef5f072" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p> -->
+  </div>
   </div>
   <div>
     <button onclick="document.getElementById('uday_en').play()">▶ English</button>
