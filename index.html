@@ -212,24 +212,36 @@ model-viewer::part(renderer) {
   box-shadow: 0 8px 28px rgba(0,0,0,0.12);
   background: #fff;
   transition: transform .25s ease, box-shadow .25s ease;
+  position: relative;
 }
 .site-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 40px rgba(0,0,0,0.18);
 }
 
+/* Thumbnail overlay */
 .site-card img.thumb {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  display: block;
-  border-bottom: 1px solid #eee;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity .4s ease;
+  z-index: 2;
 }
-
 .site-card iframe,
 .site-card model-viewer {
   width: 100%;
   height: 520px;
   display: block;
   border: none;
+}
+
+/* Hide thumb when model loads */
+.site-card.loaded img.thumb {
+  opacity: 0;
+  pointer-events: none;
 }
 
 </style>
@@ -248,12 +260,14 @@ model-viewer::part(renderer) {
 
   <!-- Jagannath Temple: Real AR -->
   
-  <h3>Jagannath Puri Temple (AR Enabled)</h3>
-<div class="site-card">
-  <img src="assets/jagannath_thumb.jpg" alt="Jagannath Temple" class="thumb">
+<h3>Jagannath Puri Temple (AR Enabled)</h3>
+<div class="site-card" id="card-jag">
+  <img src="assets/jagannath_thumb.jpg" alt="Jagannath Temple" class="thumb"
+       onclick="this.style.opacity=0; this.style.pointerEvents='none'">
   <model-viewer src="assets/model.glb" alt="Jagannath Temple"
     ar ar-modes="webxr scene-viewer quick-look"
-    camera-controls auto-rotate>
+    camera-controls auto-rotate
+    onload="document.getElementById('card-jag').classList.add('loaded')">
   </model-viewer>
 </div>
 <div class="control-row">
@@ -264,16 +278,17 @@ model-viewer::part(renderer) {
 <audio id="jag_od" src="assets/jagannath_od.mp3"></audio>
 
 
+
   <!-- Konark -->
    
-  <h3>Konark Sun Temple (3D Preview)</h3>
-<div class="site-card">
-  <img src="assets/konark_thumb.jpg" alt="Konark Sun Temple" class="thumb">
+<h3>Konark Sun Temple (3D Preview)</h3>
+<div class="site-card" id="card-konark">
+  <img src="assets/konark_thumb.jpg" alt="Konark Sun Temple" class="thumb"
+       onclick="this.style.opacity=0; this.style.pointerEvents='none'">
   <iframe title="SUN TEMPLE KONARK"
+    src="https://sketchfab.com/models/6cc905be2ae34e8091eb1eaa84a17738/embed"
     frameborder="0" allowfullscreen
-    mozallowfullscreen="true" webkitallowfullscreen="true"
-    allow="autoplay; fullscreen; xr-spatial-tracking"
-    src="https://sketchfab.com/models/6cc905be2ae34e8091eb1eaa84a17738/embed">
+    onload="document.getElementById('card-konark').classList.add('loaded')">
   </iframe>
 </div>
 <div class="control-row">
@@ -283,16 +298,17 @@ model-viewer::part(renderer) {
 <audio id="konark_en" src="assets/konark_en.mp3"></audio>
 <audio id="konark_od" src="assets/konark_od.mp3"></audio>
 
+
   <!-- Lingaraja -->
    
-  <h3>Lingaraja Temple (3D Preview)</h3>
-<div class="site-card">
-  <img src="assets/lingaraj_thumb.jpg" alt="Lingaraja Temple" class="thumb">
-  <iframe title="Lingaraj Temple Complex"
+<h3>Lingaraja Temple (3D Preview)</h3>
+<div class="site-card" id="card-lingaraj">
+  <img src="assets/lingaraj_thumb.jpg" alt="Lingaraj Temple" class="thumb"
+       onclick="this.style.opacity=0; this.style.pointerEvents='none'">
+  <iframe title="Lingaraj Temple"
+    src="https://sketchfab.com/models/e7ec5b5dd06948fd941214a6ce39e04f/embed"
     frameborder="0" allowfullscreen
-    mozallowfullscreen="true" webkitallowfullscreen="true"
-    allow="autoplay; fullscreen; xr-spatial-tracking"
-    src="https://sketchfab.com/models/e7ec5b5dd06948fd941214a6ce39e04f/embed">
+    onload="document.getElementById('card-lingaraj').classList.add('loaded')">
   </iframe>
 </div>
 <div class="control-row">
@@ -303,15 +319,16 @@ model-viewer::part(renderer) {
 <audio id="ling_od" src="assets/lingaraj_od.mp3"></audio>
 
 
+
   <!-- Dhauli -->
   <h3>Dhauli Shanti Stupa (3D Preview)</h3>
-<div class="site-card">
-  <img src="assets/dhauli_thumb.jpg" alt="Dhauli Shanti Stupa" class="thumb">
-  <iframe title="Shanti Stupa Lumbini"
+<div class="site-card" id="card-dhauli">
+  <img src="assets/dhauli_thumb.jpg" alt="Dhauli Shanti Stupa" class="thumb"
+       onclick="this.style.opacity=0; this.style.pointerEvents='none'">
+  <iframe title="Shanti Stupa"
+    src="https://sketchfab.com/models/f65cb3c34adb4473b50b8d70ef9f534c/embed"
     frameborder="0" allowfullscreen
-    mozallowfullscreen="true" webkitallowfullscreen="true"
-    allow="autoplay; fullscreen; xr-spatial-tracking"
-    src="https://sketchfab.com/models/f65cb3c34adb4473b50b8d70ef9f534c/embed">
+    onload="document.getElementById('card-dhauli').classList.add('loaded')">
   </iframe>
 </div>
 <div class="control-row">
@@ -322,15 +339,16 @@ model-viewer::part(renderer) {
 <audio id="dhauli_od" src="assets/dhauli_od.mp3"></audio>
 
 
+
   <!-- Udayagiri -->
-  <h3>Rajarani Temple, Bhubneshwar Odisha (3D Preview)</h3>
-<div class="site-card">
-  <img src="assets/rajarani_thumb.jpg" alt="Rajarani Temple" class="thumb">
-  <iframe title="Rajarani Temple, Bhubneshwar Odisha"
+ <h3>Rajarani Temple, Bhubneshwar (3D Preview)</h3>
+<div class="site-card" id="card-rajarani">
+  <img src="assets/rajarani_thumb.jpg" alt="Rajarani Temple" class="thumb"
+       onclick="this.style.opacity=0; this.style.pointerEvents='none'">
+  <iframe title="Rajarani Temple"
+    src="https://sketchfab.com/models/ba3a034848f240be95983fc07ef5f072/embed"
     frameborder="0" allowfullscreen
-    mozallowfullscreen="true" webkitallowfullscreen="true"
-    allow="autoplay; fullscreen; xr-spatial-tracking"
-    src="https://sketchfab.com/models/ba3a034848f240be95983fc07ef5f072/embed">
+    onload="document.getElementById('card-rajarani').classList.add('loaded')">
   </iframe>
 </div>
 <div class="control-row">
@@ -339,6 +357,7 @@ model-viewer::part(renderer) {
 </div>
 <audio id="uday_en" src="assets/udayagiri_en.mp3"></audio>
 <audio id="uday_od" src="assets/udayagiri_od.mp3"></audio>
+
 
   <p style="margin:20px; font-size:14px;">👉 Jagannath Temple supports AR placement. Other sites are shown as interactive 3D previews.</p>
 </body>
