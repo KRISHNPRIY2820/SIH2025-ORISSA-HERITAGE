@@ -23,11 +23,20 @@
 body {
   margin: 0;
   font-family: 'Nunito', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: url('assets/pattern.jpeg') repeat fixed,
-              linear-gradient(180deg, #fffaf5 0%, #f9f7f2 60%);
+  background: linear-gradient(180deg, #fffaf5 0%, #f9f7f2 80%); /* base */
   color: #222;
   -webkit-font-smoothing: antialiased;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('assets/pattern.jpeg') repeat;
+  opacity: 0.1; /* 10% visibility */
+  pointer-events: none; /* don’t block clicks */
+}
+
 
 /* Header / Hero */
 header.site-hero{
